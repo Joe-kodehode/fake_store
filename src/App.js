@@ -7,13 +7,17 @@ function App() {
   const [apiError, setApiError] = useState();
 
   const getData = async () => {
-    const res = await axios.get("https://fakestoreapi.com/products");
-    setData(res.data);
+    try {
+      const res = await axios.get("https://fakestoreapi.com/products");
+      setData(res.data);
+    } catch (error) {
+      setApiError(error);
+    }
   };
   useEffect(() => {
     getData();
   }, []);
-  console.log(data);
+
   return <p>{data ? JSON.stringify(data) : "loading..."}</p>;
 }
 export default App;
