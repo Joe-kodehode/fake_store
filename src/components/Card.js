@@ -1,5 +1,4 @@
 import {
-  BuyButton,
   ItemImg,
   ItemName,
   ItemDescription,
@@ -7,7 +6,9 @@ import {
   StyledCard,
 } from "../style";
 
-const Card = ({ item, buy, buttonAction }) => {
+import ActionButton from "./Button";
+
+const Card = ({ item }) => {
   const { image, title, description, price } = item;
 
   return (
@@ -16,7 +17,7 @@ const Card = ({ item, buy, buttonAction }) => {
       <ItemName>{title}</ItemName>
       <ItemDescription>{description}</ItemDescription>
       <ItemPrice>$ {price}</ItemPrice>
-      <BuyButton onClick={buttonAction}>{buy ? "Buy" : "Remove"}</BuyButton>
+      <ActionButton />
     </StyledCard>
   );
 };
