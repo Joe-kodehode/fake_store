@@ -1,23 +1,25 @@
+import { Route, Routes } from "react-router";
+import { Link } from "react-router-dom";
 import "./App.css";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import CartPage from "./pages/CartPage";
+import StorePage from "./pages/StorePage";
+import { NavButton } from "./style";
 
 function App() {
-  const [data, setData] = useState();
-  const [apiError, setApiError] = useState();
-
-  const getData = async () => {
-    try {
-      const res = await axios.get("https://fakestoreapi.com/products");
-      setData(res.data);
-    } catch (error) {
-      setApiError(error);
-    }
-  };
-  useEffect(() => {
-    getData();
-  }, []);
-
-  return <p>{data ? JSON.stringify(data) : "loading..."}</p>;
+  return (
+    <div className="App-backGround">
+      <Link to="/store-page">
+        <NavButton>Home</NavButton>
+      </Link>
+      <Link to="/cart-page">
+        <NavButton>Cart</NavButton>
+      </Link>
+      <Routes>
+        <Route path="/" element={<StorePage />} />
+        <Route path="/store-page" element={<StorePage />} />
+        <Route path="/cart-page" element={<CartPage />} />
+      </Routes>
+    </div>
+  );
 }
 export default App;
