@@ -1,5 +1,9 @@
+import StyledButton from "./Button.style";
+
 const ActionButton = ({ buy, buttonAction }) => {
-  <ActionButton onClick={buttonAction}>{buy ? "Buy" : "Remove"}</ActionButton>;
+  return (
+    <StyledButton onClick={buttonAction}>{buy ? "Buy" : "Remove"}</StyledButton>
+  );
 };
 
 export default ActionButton;

@@ -47,7 +47,7 @@ const StorePage = () => {
           {data.map((item) => (
             <Card
               item={item}
-              buy
+              buy={true}
               key={item.id}
               buttonAction={() => {
                 handleBuy(item);

@@ -35,6 +35,7 @@ const CartPage = () => {
                 handleRemove(item.id);
               }}
               key={index}
+              buy={false}
             />
           ))}
         </CardContainer>

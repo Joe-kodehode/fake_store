@@ -7,12 +7,6 @@ const NavButton = styled.button`
   font-size: 30px;
 `;
 
-const BuyButton = styled.button`
-  height: 30px;
-  width: 60px;
-  cursor: pointer;
-`;
-
 const Heading = styled.h1`
   text-align: center;
   text-decoration: underline;
@@ -57,7 +51,6 @@ const ItemName = styled.h2`
 `;
 
 export {
-  BuyButton,
   Heading,
   StyledCard,
   CardContainer,
