@@ -1,8 +1,20 @@
-import StyledButton from "./Button.style";
+import { StyledButtonPrimary } from "./Button.style";
+import { StyledButtonSecondary } from "./Button.style";
 
-const ActionButton = ({ buy, buttonAction }) => {
+const ActionButton = ({ buy, buttonAction, primary, secondary, children }) => {
   return (
-    <StyledButton onClick={buttonAction}>{buy ? "Buy" : "Remove"}</StyledButton>
+    <>
+      {primary && (
+        <StyledButtonPrimary onClick={buttonAction}>
+          {children}
+        </StyledButtonPrimary>
+      )}
+      {secondary && (
+        <StyledButtonSecondary onClick={buttonAction}>
+          {children}
+        </StyledButtonSecondary>
+      )}
+    </>
   );
 };
 

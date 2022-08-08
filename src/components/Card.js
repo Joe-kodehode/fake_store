@@ -8,7 +8,7 @@ import {
 
 import ActionButton from "./Button";
 
-const Card = ({ item, buttonAction, buy }) => {
+const Card = ({ item, buttonAction, buy, ButtonText, primary, secondary }) => {
   const { image, title, description, price } = item;
 
   return (
@@ -17,7 +17,14 @@ const Card = ({ item, buttonAction, buy }) => {
       <ItemName>{title}</ItemName>
       <ItemDescription>{description}</ItemDescription>
       <ItemPrice>$ {price}</ItemPrice>
-      <ActionButton buttonAction={buttonAction} buy={buy} />
+      <ActionButton
+        primary={primary}
+        secondary={secondary}
+        buttonAction={buttonAction}
+        buy={buy}
+      >
+        {ButtonText}
+      </ActionButton>
     </StyledCard>
   );
 };

@@ -49,6 +49,8 @@ const StorePage = () => {
               item={item}
               buy={true}
               key={item.id}
+              ButtonText="Buy"
+              primary
               buttonAction={() => {
                 handleBuy(item);
               }}
