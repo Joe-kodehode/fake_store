@@ -1,12 +1,5 @@
 import styled from "styled-components";
 
-const NavButton = styled.button`
-  height: 50px;
-  width: 100px;
-  cursor: pointer;
-  font-size: 30px;
-`;
-
 const Heading = styled.h1`
   text-align: center;
   text-decoration: underline;
@@ -14,20 +7,8 @@ const Heading = styled.h1`
 
 const CardContainer = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-`;
-
-const StyledCard = styled.div`
-  background: lightblue;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  padding: 10px;
-  margin: 20px;
-  width: 300px;
-  border: black;
-  border-radius: 2px black solid;
 `;
 
 const ItemImg = styled.img`
@@ -52,11 +33,9 @@ const ItemName = styled.h2`
 
 export {
   Heading,
-  StyledCard,
   CardContainer,
   ItemImg,
   ItemDescription,
   ItemName,
   ItemPrice,
-  NavButton,
 };

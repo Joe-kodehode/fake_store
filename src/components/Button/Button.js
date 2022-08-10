@@ -1,7 +1,6 @@
-import { StyledButtonPrimary } from "./Button.style";
-import { StyledButtonSecondary } from "./Button.style";
+import { StyledButtonPrimary, StyledButtonSecondary } from "./Button.style";
 
-const ActionButton = ({ buy, buttonAction, primary, secondary, children }) => {
+const ActionButton = ({ buttonAction, primary, secondary, children }) => {
   return (
     <>
       {primary && (

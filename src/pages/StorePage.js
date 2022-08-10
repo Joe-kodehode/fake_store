@@ -8,14 +8,16 @@
 // 8. total price functionality
 
 import { useEffect, useState } from "react";
-import Card from "../components/Card";
+import Card from "../components/Card/Card";
 import { CardContainer, Heading } from "../style";
 
 const StorePage = () => {
+  // State management for 'data'(from API), 'api error' and 'is loading' (boolean)
   const [data, setData] = useState();
   const [apiError, setApiError] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
+  // Function to fetch data from API, sets loading to true at the start and false at the end.
   const fetchData = async () => {
     setIsLoading(true);
     try {
@@ -29,14 +31,18 @@ const StorePage = () => {
     }
   };
 
+  // useEffect to run fetchData function on first render
   useEffect(() => {
     fetchData();
   }, []);
 
+  // function to store cart items in local storage, this is called when the user presses buy button
   const handleBuy = (item) => {
-    let currentCart = JSON.parse(localStorage.getItem("cart"));
-    if (!currentCart) currentCart = [];
-    localStorage.setItem("cart", JSON.stringify([...currentCart, item]));
+    const currentCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    localStorage.setItem(
+      "cart",
+      JSON.stringify([...currentCart, { ...item, id: Date.now() }])
+    );
   };
 
   return (
@@ -47,7 +53,7 @@ const StorePage = () => {
           {data.map((item) => (
             <Card
               item={item}
-              buy={true}
+              store={true}
               key={item.id}
               ButtonText="Buy"
               primary

@@ -1,41 +1,26 @@
 import { useEffect, useState } from "react";
-import Card from "../components/Card";
+import Card from "../components/Card/Card";
 import { CardContainer, Heading } from "../style";
 
 const CartPage = () => {
-  const [cartData, setCartData] = useState();
-  const [totalPrice, setTotalPrice] = useState(0);
+  // state for storing current cart data
+  const [cartData, setCartData] = useState(
+    JSON.parse(localStorage.getItem("cart") || "[]")
+  );
 
+  // useEffect which updates localstorage each time cartData changes
   useEffect(() => {
-    setCartData(JSON.parse(localStorage.getItem("cart")));
-  }, []);
-
-  // const calculateTotal = () => {
-
-  // };
-
-  useEffect(() => {
-    if (cartData) {
-      setTotalPrice(0);
-      cartData.forEach((item, i) => {
-        setTotalPrice(totalPrice + item.price);
-      });
-    }
+    localStorage.setItem("cart", JSON.stringify(cartData));
   }, [cartData]);
 
+  // function to update cart data with all previous items minus the item removed. uses .filter to compare the passed in 'id' against all 'id's' in cartData, then returns everything minus the item with the matching id
   const handleRemove = (id) => {
-    let currentCart = JSON.parse(localStorage.getItem("cart"));
-
-    const index = currentCart.findIndex((item) => {
-      return item.id === id;
-    });
-
-    currentCart.splice(index, 1);
-
-    localStorage.setItem("cart", JSON.stringify(currentCart));
-    setCartData(currentCart);
+    setCartData((prevCartData) =>
+      prevCartData.filter((item) => item.id !== id)
+    );
   };
 
+  console.log(cartData);
   return (
     <>
       <Heading>Cart</Heading>
@@ -51,10 +36,14 @@ const CartPage = () => {
               secondary
               ButtonText="Remove"
               key={index}
-              buy={false}
+              store={false}
             />
           ))}
-          <h3>Total Price: ${totalPrice}</h3>
+          {/* total price is calculated using .reduce to add up the sum of all item prices in cartData, then limits decimals to 2 places */}
+          <h3>
+            Total Price: $
+            {cartData.reduce((sum, item) => sum + item.price, 0).toFixed(2)}
+          </h3>
         </CardContainer>
       )}
     </>
