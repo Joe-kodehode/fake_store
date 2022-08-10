@@ -1,6 +1,8 @@
-import { ItemImg, ItemName, ItemPrice } from "../../style";
+import { ItemName, ItemPrice } from "../../style";
 
 import { StyledCard } from "./Card.style";
+
+import ImgContainer from "../ImgContainer";
 
 import ActionButton from "../Button/Button";
 
@@ -16,7 +18,9 @@ const Card = ({
 
   return (
     <StyledCard store={store}>
-      <ItemImg src={image} />
+      <ImgContainer store={store}>
+        <img src={image} />
+      </ImgContainer>
       <ItemName>{title}</ItemName>
 
       <ItemPrice>$ {price}</ItemPrice>

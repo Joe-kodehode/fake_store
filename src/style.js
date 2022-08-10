@@ -2,18 +2,17 @@ import styled from "styled-components";
 
 const Heading = styled.h1`
   text-align: center;
-  text-decoration: underline;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: 3rem;
+  letter-spacing: 24px;
+  text-shadow: 2px 2px #ff0000;
 `;
 
-const CardContainer = styled.div`
+const CardContainer = styled.main`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-`;
-
-const ItemImg = styled.img`
-  max-height: 300px;
-  max-width: 200px;
 `;
 
 const ItemDescription = styled.p`
@@ -31,11 +30,4 @@ const ItemName = styled.h2`
   font-size: 24px;
 `;
 
-export {
-  Heading,
-  CardContainer,
-  ItemImg,
-  ItemDescription,
-  ItemName,
-  ItemPrice,
-};
+export { Heading, CardContainer, ItemDescription, ItemName, ItemPrice };
