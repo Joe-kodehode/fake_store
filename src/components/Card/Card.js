@@ -1,11 +1,9 @@
 import { ItemName, ItemPrice } from "../../style";
-
 import { StyledCard } from "./Card.style";
-
 import ImgContainer from "../ImgContainer";
-
 import ActionButton from "../Button/Button";
 
+// Card component, provides props to buttons/pages
 const Card = ({
   item,
   buttonAction,
@@ -19,10 +17,9 @@ const Card = ({
   return (
     <StyledCard store={store}>
       <ImgContainer store={store}>
-        <img src={image} />
+        <img src={image} alt="product" />
       </ImgContainer>
       <ItemName>{title}</ItemName>
-
       <ItemPrice>$ {price}</ItemPrice>
       <ActionButton
         primary={primary}

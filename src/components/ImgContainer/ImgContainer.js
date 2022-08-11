@@ -1,7 +1,6 @@
 import StyledImgContainer from "./ImgContainer.style";
 
-import { ItemImg } from "../../style";
-
+// container for the image within the card
 const ImgContainer = ({ children, store }) => {
   return <StyledImgContainer store={store}>{children}</StyledImgContainer>;
 };

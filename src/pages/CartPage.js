@@ -20,7 +20,6 @@ const CartPage = () => {
     );
   };
 
-  console.log(cartData);
   return (
     <>
       <Heading>Cart</Heading>

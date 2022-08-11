@@ -55,7 +55,7 @@ const StorePage = () => {
               item={item}
               store={true}
               key={item.id}
-              ButtonText="Buy"
+              ButtonText="Add to Cart"
               primary
               buttonAction={() => {
                 handleBuy(item);
