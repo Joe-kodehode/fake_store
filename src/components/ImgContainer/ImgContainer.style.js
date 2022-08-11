@@ -3,7 +3,7 @@ import styled from "styled-components";
 // styling for image container
 const StyledImgContainer = styled.picture`
   /* if on store page height is 24rem, otherwise if on cart page 5rem */
-  ${(props) => (props.store ? "height: 24rem" : "height: 5rem")};
+  height: ${(props) => (props.store ? "24rem" : "5rem")};
   display: flex;
   justify-content: center;
   & img {
