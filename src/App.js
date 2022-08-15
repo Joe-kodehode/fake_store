@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import CartPage from "./pages/CartPage";
 import StorePage from "./pages/StorePage";

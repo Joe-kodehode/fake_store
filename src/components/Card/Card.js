@@ -2,6 +2,7 @@ import { ItemName, ItemPrice } from "../../style";
 import { StyledCard } from "./Card.style";
 import ImgContainer from "../ImgContainer";
 import ActionButton from "../Button/Button";
+import { Link } from "react-router-dom";
 
 // Card component, provides props to buttons/pages
 const Card = ({
@@ -32,4 +33,5 @@ const Card = ({
     </StyledCard>
   );
 };
+
 export default Card;

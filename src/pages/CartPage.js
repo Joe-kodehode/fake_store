@@ -24,6 +24,10 @@ const CartPage = () => {
     <>
       <Heading>Cart</Heading>
 
+      {/* total price is calculated using .reduce to add up the sum of all item prices in cartData, then limits decimals to 2 places */}
+      <h3>
+        Total: ${cartData.reduce((sum, item) => sum + item.price, 0).toFixed(2)}
+      </h3>
       {cartData && (
         <CardContainer>
           {cartData.map((item, index) => (
@@ -38,11 +42,6 @@ const CartPage = () => {
               store={false}
             />
           ))}
-          {/* total price is calculated using .reduce to add up the sum of all item prices in cartData, then limits decimals to 2 places */}
-          <h3>
-            Total Price: $
-            {cartData.reduce((sum, item) => sum + item.price, 0).toFixed(2)}
-          </h3>
         </CardContainer>
       )}
     </>
